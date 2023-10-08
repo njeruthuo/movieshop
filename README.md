@@ -5,7 +5,7 @@ A project leveraging the TMDB API to fetch the hotest movies in town. This semi-
 - Vite
 - VSCODE
 - JAVASCRIPT
-- REACT
+- REACT.
 - MATERIAL UI
 - CSS
 - HTML
