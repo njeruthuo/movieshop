@@ -1,0 +1,62 @@
+.icons-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-class {
+    color: white;
+    background-color: white;
+}
+
+.appbar {
+    display: flex;
+    justify-content: space-between;
+    /* padding: 0 3rem; */
+}
+
+.search {
+    border: none;
+}
+
+form {
+    color: white;
+    display: flex;
+    padding: 2px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+input[type="search"] {
+    border: none;
+    background: transparent;
+    margin: 0;
+    width: 24rem;
+    padding: 7px 8px;
+    font-size: 14px;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: inherit;
+}
+
+input[type="search"]::placeholder {
+    color: white;
+}
+
+button[type="submit"]:focus,
+input[type="search"]:focus {
+    box-shadow: 0 0 3px 0 #1183d6;
+    border: none;
+    outline: none;
+}
+
+.display-apart {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu-icons{
+    padding: .8rem;
+    background-color: rgb(235, 88, 88);
+    border-radius: 50%;
+}
