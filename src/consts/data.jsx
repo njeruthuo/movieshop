@@ -3,6 +3,7 @@ const BASE_URL = "https://api.themoviedb.org/3/movie/top_rated";
 export const MOVIELIST_URL = `${BASE_URL}?api_key=${API_KEY}`;
 export const TOP_MOVIE_DETAIL_URL =
     `https://api.themoviedb.org/3/movie/458156?api_key=` + API_KEY;
+export const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
 export const genres = [
     { id: 28, name: "Action" },

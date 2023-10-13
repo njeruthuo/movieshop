@@ -1,14 +1,16 @@
 import Content from "../components/content/Content";
 import Footer from "../components/footer/Footer";
 import Header from "../components/header";
+import NavBar from "../components/NavBar";
 
 const Home = () => {
-    const styles = {};
+   
     return (
         <div>
             <Header />
             <Content />
-            <Footer />
+            {/* <NavBar/> */}
+            {/* <Footer /> */}
         </div>
     );
 };

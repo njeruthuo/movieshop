@@ -19,7 +19,12 @@ const Header = () => {
     const isBelowSM = useMediaQuery(theme.breakpoints.down("sm"));
     return (
         <div>
-            <AppBar position="static">
+            <AppBar
+                sx={{
+                    backgroundColor: "rgba(0, 0, 0, 0)", // Transparent background color
+                    borderBottom: "none",
+                }}
+            >
                 <Toolbar>
                     {isBelowSM ? (
                         <>
