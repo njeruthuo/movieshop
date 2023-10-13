@@ -2,7 +2,9 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { MOVIELIST_URL } from "../../consts/data";
 
 export const getMovieList = createAsyncThunk("movie/getMovieList", () => {
-    return fetch(MOVIELIST_URL).then((resp) => resp.json());
+    return fetch(MOVIELIST_URL)
+        .then((resp) => resp.json())
+        .then((err) => console.log(err));
 });
 
 const initialState = {

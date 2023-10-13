@@ -8,7 +8,6 @@ const Poster = () => {
     const { headerData, bg } = useDataFetch();
 
     const { title, popularity, vote_count, overview } = headerData;
-    console.log(headerData);
 
     return (
         <Box
@@ -40,13 +39,13 @@ const Poster = () => {
                     "@media (max-width: 768px)": {
                         margin: "1.6rem",
                         fontSize: "0.4em",
-                        bottom: "1rem",
+                        bottom: "4rem",
                     },
 
                     "@media (min-width: 768px) ": {
-                        left: "7rem",
-                        width: "35%",
-                        top: "14rem",
+                        left: "5rem",
+                        width: "50%",
+                        bottom: "5rem",
                     },
                 }}
             >
@@ -59,7 +58,7 @@ const Poster = () => {
                 <Box>
                     <Typography color="white">{overview}</Typography>
                 </Box>
-                <Box sx={{ margin: "1rem" }}>
+                <Box sx={{ paddingTop: "1rem" }}>
                     <Button color="error" variant="contained">
                         <IconButton
                             color="white"
