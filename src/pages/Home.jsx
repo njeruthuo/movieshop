@@ -9,7 +9,6 @@ const Home = () => {
         <div>
             <Header />
             <Content />
-            {/* <NavBar/> */}
             {/* <Footer /> */}
         </div>
     );
