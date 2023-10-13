@@ -15,3 +15,4 @@ This is the Designs I will be implementing from Figma -> [Figma design](https://
 - HTML
 - FETCH API
 - REDUX
+- TMDB API
