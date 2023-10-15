@@ -14,7 +14,7 @@ export function HeaderLowerBreakpoint({ search, setSearch, open, setOpen }) {
             </Grid>
             <Grid item sm={6} className="display-apart">
                 <IconButton
-                    onClick={() => {}}
+                    onClick={() => setOpen(!open)}
                     style={{
                         color: "white",
                         marginLeft: "auto",
@@ -23,7 +23,7 @@ export function HeaderLowerBreakpoint({ search, setSearch, open, setOpen }) {
                     <SearchIcon />
                 </IconButton>
                 <IconButton
-                    onClick={() => setOpen(!open)}
+                    onClick={() => {}}
                     style={{
                         color: "white",
                         height: "0.2rem",

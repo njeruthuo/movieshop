@@ -1,8 +1,8 @@
 import { Box, Button, IconButton, Typography } from "@mui/material";
 import useDataFetch from "./datafetch";
-import { IMDB_Logo, tomato } from "../../consts/context";
 import { memo } from "react";
 import PlayCircleFilledWhiteRoundedIcon from "@mui/icons-material/PlayCircleFilledWhiteRounded";
+import Statistics from "./Statistics";
 
 const Poster = () => {
     const { headerData, bg } = useDataFetch();
@@ -50,7 +50,7 @@ const Poster = () => {
                 }}
             >
                 <Title title={title} />
-                <Information
+                <Statistics
                     popularity={popularity}
                     vote_count={vote_count}
                     overview={overview}
@@ -59,18 +59,18 @@ const Poster = () => {
                     <Typography color="white">{overview}</Typography>
                 </Box>
                 <Box sx={{ paddingTop: "1rem" }}>
-                    <Button color="error" variant="contained">
-                        <IconButton
-                            color="white"
-                            style={{
-                                color: "white",
-                                borderRadius: "50%",
-                                padding: "4px",
-                            }}
+                    <Button
+                        variant="contained"
+                        color="error"
+                        style={{
+                            // color: "error",
+                            padding: "8px",
+                        }}
+                    >
+                        <PlayCircleFilledWhiteRoundedIcon />
+                        <Typography
+                            style={{ fontWeight: "bold", marginLeft: "0.5rem" }}
                         >
-                            <PlayCircleFilledWhiteRoundedIcon />
-                        </IconButton>
-                        <Typography style={{ fontWeight: "bold" }}>
                             Watch Trailer
                         </Typography>
                     </Button>
@@ -81,55 +81,6 @@ const Poster = () => {
 };
 
 export default memo(Poster);
-
-function Information({ popularity, vote_count }) {
-    return (
-        <Box
-            sx={{
-                display: "flex",
-                color: "white",
-            }}
-        >
-            <Box
-                sx={{
-                    display: "flex",
-                    placeItems: "center",
-                    alignContent: "center",
-                    gap: 1,
-                    marginRight: "3rem",
-                    margin: "1rem 0",
-                }}
-            >
-                <img
-                    height="14px"
-                    className="imdb-logo"
-                    src={IMDB_Logo}
-                    alt="IMDB_Logo"
-                />
-                <Typography>{`${Math.floor(popularity).toFixed(
-                    1
-                )} / 100`}</Typography>
-            </Box>
-            <Box
-                sx={{
-                    display: "flex",
-                    placeItems: "center",
-                    alignContent: "center",
-                    gap: 1,
-                    marginRight: "3rem",
-                }}
-            >
-                <img
-                    height="14px"
-                    className="imdb-logo"
-                    src={tomato}
-                    alt="Rotten_Tomatoes"
-                />
-                <Typography>{`${Math.round(vote_count / 100)}%`}</Typography>
-            </Box>
-        </Box>
-    );
-}
 
 function Title({ title }) {
     return (
