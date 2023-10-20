@@ -96,14 +96,7 @@ const MovieDetail = () => {
                     }}
                 >
                     <Grid container>
-                        <Grid
-                            item
-                            xs={12}
-                            md={8}
-                            sx={{
-                                border: "1px solid black",
-                            }}
-                        >
+                        <Grid item xs={12} md={8}>
                             <>
                                 <Box
                                     sx={{
@@ -193,14 +186,7 @@ const MovieDetail = () => {
                                 </Box>
                             </>
                         </Grid>
-                        <Grid
-                            item
-                            xs={12}
-                            md={4}
-                            sx={{
-                                border: "1px solid black",
-                            }}
-                        >
+                        <Grid item xs={12} md={4}>
                             <MoreDetails />
                         </Grid>
                     </Grid>
