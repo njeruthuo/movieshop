@@ -4,8 +4,10 @@ import { IMAGE_BASE_URL, genres } from "../../../consts/data";
 import Statistics from "../Statistics";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
+import { Link } from "react-router-dom";
 
 const MovieCard = ({
+    id,
     title,
     genre_ids,
     poster_path,
@@ -43,9 +45,11 @@ const MovieCard = ({
                     >{`USA, ${new Date(
                         release_date
                     ).getFullYear()}`}</Typography>
-                    <Typography variant="h6" sx={{ fontSize: "17px" }}>
-                        {title}
-                    </Typography>
+                    <Link to={`/${id}`}>
+                        <Typography variant="h6" sx={{ fontSize: "17px" }}>
+                            {title}
+                        </Typography>
+                    </Link>
                 </Box>
                 <Box>
                     <Statistics

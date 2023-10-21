@@ -2,7 +2,7 @@ import { Box, Button, IconButton, Typography } from "@mui/material";
 import StarBorderPurple500OutlinedIcon from "@mui/icons-material/StarBorderPurple500Outlined";
 import ConfirmationNumberOutlinedIcon from "@mui/icons-material/ConfirmationNumberOutlined";
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
-import ConfirmationNumberRoundedIcon from "@mui/icons-material/ConfirmationNumberRounded";
+
 import { memo } from "react";
 
 const MoreDetails = () => {
@@ -14,9 +14,10 @@ const MoreDetails = () => {
                     display: "flex",
                     placeItems: "center",
                     marginRight: "auto",
+                    justifyContent: "flex-end",
                 }}
             >
-                <IconButton aria-label="| 350k">
+                <IconButton aria-label="| 350k" sx={{ color: "yellow" }}>
                     <StarBorderPurple500OutlinedIcon />
                 </IconButton>
                 <Typography sx={{ marginLeft: "1rem" }}>|350k</Typography>

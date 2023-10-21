@@ -8,7 +8,7 @@ const MovieList = () => {
         (state) => state.movies
     );
 
-    console.log(movieList);
+    
 
     if (isLoading) {
         return (

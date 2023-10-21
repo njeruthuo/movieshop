@@ -1,32 +1,28 @@
 import "./detail.css";
-import {
-    Box,
-    Button,
-    Container,
-    Grid,
-    IconButton,
-    Typography,
-} from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
 import PermanentDrawerLeft from "../components/details/DrawerComponent";
 import { useMediaQuery, useTheme } from "@mui/material";
-import useDataFetch from "../components/content/datafetch";
-import { genres as list_genres } from "../consts/data";
 import MoreDetails from "../components/content/movies/MoreDetails";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { IMAGE_BASE_URL, genres } from "../consts/data";
 
 const MovieDetail = () => {
-    const { headerData, bg } = useDataFetch();
-    const {
-        title,
-        popularity,
-        vote_count,
-        overview,
-        release_date,
-        runtime,
-        adult,
-        genres,
-        tagline,
-    } = headerData;
+    const { id } = useParams();
+
+    const { movieList, isLoading, isError } = useSelector(
+        (state) => state.movies
+    );
+
+    const selectedMovie = movieList.find((movie) => movie.id === parseInt(id));
+    const { title, overview, release_date, adult, genre_ids, poster_path } =
+        selectedMovie;
 
     const theme = useTheme();
     const widthLessThanMedium = useMediaQuery(theme.breakpoints.up("md"));
@@ -43,8 +39,34 @@ const MovieDetail = () => {
         marginRight: widthLessThanMedium ? "320px" : "0",
     };
 
-    const hours = Math.floor(runtime / 60); // Get the whole hours
-    const minutes = runtime % 60; // Get the remaining minutes
+    const genre_list = genre_ids.map((item) => {
+        const genre_item = genres.find((genre) => genre.id === item);
+        return genre_item ? genre_item.name : null;
+    });
+
+    const combined_genres = genre_list.join(", ");
+
+    console.log(genre_list);
+
+    if (!selectedMovie) {
+        return <div>Movie not found</div>;
+    }
+
+    if (isLoading) {
+        return (
+            <Container>
+                <Typography>Loading....</Typography>
+            </Container>
+        );
+    }
+
+    if (isError) {
+        return (
+            <Container>
+                <Typography>Error loading movies</Typography>
+            </Container>
+        );
+    }
 
     return (
         <Container>
@@ -63,10 +85,11 @@ const MovieDetail = () => {
                         style={{
                             borderRadius: "1rem",
                             width: widthLessThanSmall ? "100%" : "80%",
+                            height: "60vh",
                         }}
-                        src={bg}
+                        src={IMAGE_BASE_URL + poster_path}
                         alt={title}
-                        height="80%"
+                        // height="25vh"
                     />
                     <Box
                         sx={{
@@ -77,6 +100,7 @@ const MovieDetail = () => {
                             alignItems: "center",
                             position: "absolute",
                             bottom: "50%",
+                            top: "50%",
                         }}
                     >
                         <IconButton
@@ -114,8 +138,8 @@ const MovieDetail = () => {
                                         {title} &#183;{" "}
                                         {new Date(release_date).getFullYear()}{" "}
                                         &#183;
-                                        {adult ? "" : "PG-13"} &#183;
-                                        {` ${hours}h ${minutes}m `}
+                                        {adult ? "" : "PG-13"} &#183;{" "}
+                                        {combined_genres}
                                     </Typography>
                                     <Typography
                                         sx={{

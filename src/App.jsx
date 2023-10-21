@@ -3,6 +3,7 @@ import { getMovieList } from "./features/movies/movieSlice";
 import { useDispatch } from "react-redux";
 import Home from "./pages/Home";
 import MovieDetail from "./pages/MovieDetail";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
     const dispatch = useDispatch();
@@ -10,11 +11,15 @@ const App = () => {
     useEffect(() => {
         dispatch(getMovieList());
     }, []);
-    
+
     return (
         <>
-            {/* <Home /> */}
-            <MovieDetail />
+            <BrowserRouter>
+                <Routes>
+                    <Route exact path="/" element={<Home />} />
+                    <Route path=":id" element={<MovieDetail />} />
+                </Routes>
+            </BrowserRouter>
         </>
     );
 };
